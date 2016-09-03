@@ -1,4 +1,18 @@
-#### **matfilter**
+manipulateR
+==
+Tools for streamlining the general data processing pipeline
+--
+---
+### **CONTENTS**
+1. _matfilter_ for subsetting matrices and data.frames by proportion of column/row elements meeting a condition
+2. _ultimate_reader_ for loading and merging multiple files
+3. _rowcol_inserter_ for... doing exactly what you'd expect
+4. _excel_to_r_ for pasting spreadsheet values as comma-separated strings (for vector definition)
+5. _comma_blaster_ for doing the same as #4 with R output
+
+---
+
+#### **1. matfilter**
 #### Remove rows or columns according to the proportion of elements that meet a condition
 ```R
 matfilter(x, mar=2, cond=NA, fun=NULL, thresh=1, 
@@ -44,12 +58,93 @@ $row_proportions
 ```
 
 
-#### **ultimate_reader**
+#### **2. ultimate_reader**
 #### Read and merge multiple files
 + `dir_args` a `list` of args passed to `dir`, which selects the files to be read/merged.
 + `read_args` a `list` of args passed to `read_table`, which by default is set up to read .csv files.
-+ `merge` determines whether to merge all files and output the merged `data.frame`(`TRUE`) or leave them separate and add them to the global environment (`FALSE`)
-ultimate_reader(dir_args=list(path='./', pattern='.csv'),
-                              read_args=list(sep=',', quote="\"", header=TRUE, 
-                                             fill=TRUE, comment.char=""),
-                              merge=FALSE, ...)
+```R
+ultimate_reader(dir_args=list(path='./',pattern='.csv'),
+    read_args=list(sep=',', quote="\"", header=TRUE,
+    fill=TRUE, comment.char=""), 
+    merge=FALSE, ...)
+```
+                              
+#### **3. rowcol_inserter**
+#### Insert a row or column into a matrix or data.frame
+```R
+rowcol_inserter(x, vec, pos, name=pos, dim='row')
+```
++ `x` = data.frame or matrix
++ `vec` = [vector] Row/column to be inserted
++ `pos` = [numeric] Position where row/column will be inserted
++ `name` = [character] Name of the row/column
++ `dim` = [character] Should the vector be inserted as a row ('row') or column ('col')?
+
+#### **_Example Usage_**
+```R
+#example dataframe
+x <- data.frame('col1'=1:10, 'col2'=rnorm(10), 'col3'=letters[1:10],
+    stringsAsFactors=FALSE)
+
+#insert new row at position 8
+rowcol_inserter(x, c(99,100,'new'), 8)
+
+#insert new column at position 3
+rowcol_inserter(x, 101:110, 3, name='newcol', dim='col')
+```
+---
+#### **4. excel_to_r**
+#### Paste values from spreadsheets into R in vector-ready format
++ **Call the function, paste values from Excel, LibreOffice Calc, etc., hit Enter.**
++ **The values will be printed as a comma-separated character string that can now be copied and used to define a vector.**
+```R
+excel_to_r(char_out=FALSE, spaces=TRUE, ...)
+```
++ `char_out` = [logical] Should the output be printed with quotes around each vector element?
++ `spaces` = [logical] Should each comma be followed by a space (just for looks)?
++ `...` = additional arguments to 'scan'
+#### **_Example Usage_**
+```R
+> excel_to_r(spaces=FALSE)
+Paste Excel values into console, then hit ENTER
+1: 0    3   3.5 2.5 3   4   2.5 0
+9: 
+Read 8 items
+[1] "0,3,3.5,2.5,3,4,2.5,0"
+newvec <- c(0,3,3.5,2.5,3,4,2.5,0)
+
+> excel_to_r(char_out=TRUE, allowEscapes=FALSE)
+Paste Excel values into console, then hit ENTER
+1: 4    6   3.2 \n
+5: 
+Read 4 items
+[1] "'4', '6', '3.2', '\\n'"
+```
+---
+#### **5. comma_blaster**
+#### Format R console printouts for definition of new vectors
++ **Sometimes faster than figuring out how to extract data from complex objects**
++ **Often useful during exploratory phase of analysis**
+```R
+comma_blaster(x, sep=" ", char_out=FALSE, spaces=TRUE)
+```
++ `x` = [string] A character string to be comma-separated
++ `sep` = [string] Element in the input string to be replaced with commas.  Defaults to " ".
++ `char_out` = [logical] Should the output be printed with quotes around each vector element?
++ `spaces` = [logical] Should each comma be followed by a space (just for looks)?
+
+#### **_Example Usage_**
+```R
+> comma_blaster(month.abb[1:5], char_out=TRUE)
+[1] "'Jan', 'Feb', 'Mar', 'Apr', 'May'"
+> newvec <- c('Jan', 'Feb', 'Mar', 'Apr', 'May')
+> 
+> comma_blaster("1-800-555-0100", sep='-')
+[1] "1, 800, 555, 0100"
+```
+---
+
+
+
+
+
