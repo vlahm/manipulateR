@@ -9,6 +9,14 @@
 #'   1 for rows or 2 for columns.
 #' @param cond character expression; the completion of a Boolean expression,
 #'   e.g. ">= 0", which is passed to \code{apply}.
+#' @param thresh a float between 0 and 1. Only rows/columns with \code{<=}
+#'   this proportion of elements satisfying \code{cond} or \code{fun}
+#'   will be returned if \code{filter == TRUE}.
+#' @param na.rm logical; if \code{FALSE}, rows/columns containing \code{NA}
+#'   values will be evaluated to \code{NA} if using \code{fun}.
+#' @param filter logical; if \code{TRUE}, the filtered matrix or data.frame
+#'   will be returned.  If \code{FALSE}, only the proportions of values in
+#'   each column satisfying \code{cond} or \code{fun} will be returned.
 #' @keywords subsetting, slicing
 #' @return a matrix or data.frame with columns or rows removed according to
 #'   the condition or function specified.
