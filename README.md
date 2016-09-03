@@ -1,11 +1,9 @@
-#manipulateR
+# **manipulateR**
 
-##Tools for streamlining the general data processing pipeline
-
+### Tools for streamlining the general data processing pipeline
 ### **Description**
 Some data manipulation tasks are just easy enough that we never get around to automating them. We just perform them over and over, making mental notes that it would be nice to write functions for them one day. Here are those functions.
 
----
 ### **Contents**
 1. _matfilter_ for subsetting matrices and data.frames by proportion of column/row elements meeting a condition
 2. _ultimate_reader_ for loading and merging multiple files
@@ -13,10 +11,10 @@ Some data manipulation tasks are just easy enough that we never get around to au
 4. _excel_to_r_ for pasting spreadsheet values as comma-separated strings (for vector definition)
 5. _comma_blaster_ for doing the same as #4 with R output
 6.  Installation
+7.  Contact the author
 
 ---
-
-#### **1. matfilter**
+### **1. matfilter**
 #### Remove rows or columns according to the proportion of elements that meet a condition
 ```R
 matfilter(x, mar=2, cond=NA, fun=NULL, thresh=1, 
@@ -60,8 +58,7 @@ $row_proportions
 3 3 NA NA
 4 3  1  3
 ```
-
-
+---
 #### **2. ultimate_reader**
 #### Read and merge multiple files
 + `dir_args` a `list` of args passed to `dir`, which selects the files to be read/merged.
@@ -72,8 +69,13 @@ ultimate_reader(dir_args=list(path='./',pattern='.csv'),
     fill=TRUE, comment.char=""), 
     merge=FALSE, ...)
 ```
-                              
-#### **3. rowcol_inserter**
+#### **_Example Usage_**
+```R
+ultimate_reader(dir_args=list(path='~/project/data', pattern='\w{3}_2016.csv'))
+ultimate_reader(merge=TRUE, by='data', all=TRUE)
+```
+---
+### **3. rowcol_inserter**
 #### Insert a row or column into a matrix or data.frame
 ```R
 rowcol_inserter(x, vec, pos, name=pos, dim='row')
@@ -97,7 +99,7 @@ rowcol_inserter(x, c(99,100,'new'), 8)
 rowcol_inserter(x, 101:110, 3, name='newcol', dim='col')
 ```
 ---
-#### **4. excel_to_r**
+### **4. excel_to_r**
 #### Paste values from spreadsheets into R in vector-ready format
 + **Call the function, paste values from Excel, LibreOffice Calc, etc., hit Enter.**
 + **The values will be printed as a comma-separated character string that can now be copied and used to define a vector.**
@@ -107,6 +109,7 @@ excel_to_r(char_out=FALSE, spaces=TRUE, ...)
 + `char_out` = [logical] Should the output be printed with quotes around each vector element?
 + `spaces` = [logical] Should each comma be followed by a space (just for looks)?
 + `...` = additional arguments to 'scan'
+
 #### **_Example Usage_**
 ```R
 > excel_to_r(spaces=FALSE)
@@ -125,7 +128,7 @@ Read 4 items
 [1] "'4', '6', '3.2', '\\n'"
 ```
 ---
-#### **5. comma_blaster**
+### **5. comma_blaster**
 #### Format R console printouts for definition of new vectors
 + **Sometimes faster than figuring out how to extract data from complex objects**
 + **Often useful during exploratory phase of analysis**
@@ -147,15 +150,16 @@ comma_blaster(x, sep=" ", char_out=FALSE, spaces=TRUE)
 [1] "1, 800, 555, 0100"
 ```
 ---
-#### **6. Installation**
+### **6. Installation**
 \# in R:
 install.packages('devtools')
 library(devtools)
 
 install_github('vlahm/manipulateR')
 library(manipulateR)
-
-#### **7. Contact the author**
+---
+### **7. Contact the author**
 Mike Vlah
 vlahm13@gmail[dot]com
+
 
