@@ -164,6 +164,5 @@ library(manipulateR)
 ### **7. Contact the author**
 Mike Vlah: 
 + vlahm13@gmail[dot]com
-+ linkedin.com/in/michaelvlah
-
++ [linkedin.com/in/michaelvlah]
 
