@@ -59,7 +59,7 @@ $row_proportions
 4 3  1  3
 ```
 ---
-#### **2. ultimate_reader**
+### **2. ultimate_reader**
 #### Read and merge multiple files
 + `dir_args` a `list` of args passed to `dir`, which selects the files to be read/merged.
 + `read_args` a `list` of args passed to `read_table`, which by default is set up to read .csv files.
@@ -151,15 +151,19 @@ comma_blaster(x, sep=" ", char_out=FALSE, spaces=TRUE)
 ```
 ---
 ### **6. Installation**
-\# in R:
+```R
+# devtools lets you install packages from GitHub:
 install.packages('devtools')
 library(devtools)
 
+# then it's this simple:
 install_github('vlahm/manipulateR')
 library(manipulateR)
+```
 ---
 ### **7. Contact the author**
-Mike Vlah
-vlahm13@gmail[dot]com
+Mike Vlah: 
++ vlahm13@gmail[dot]com
++ linkedin.com/in/michaelvlah
 
 
