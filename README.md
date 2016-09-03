@@ -1,14 +1,18 @@
-manipulateR
-==
-Tools for streamlining the general data processing pipeline
---
+#manipulateR
+
+##Tools for streamlining the general data processing pipeline
+
+### **Description**
+Some data manipulation tasks are just easy enough that we never get around to automating them. We just perform them over and over, making mental notes that it would be nice to write functions for them one day. Here are those functions.
+
 ---
-### **CONTENTS**
+### **Contents**
 1. _matfilter_ for subsetting matrices and data.frames by proportion of column/row elements meeting a condition
 2. _ultimate_reader_ for loading and merging multiple files
 3. _rowcol_inserter_ for... doing exactly what you'd expect
 4. _excel_to_r_ for pasting spreadsheet values as comma-separated strings (for vector definition)
 5. _comma_blaster_ for doing the same as #4 with R output
+6.  Installation
 
 ---
 
@@ -143,8 +147,15 @@ comma_blaster(x, sep=" ", char_out=FALSE, spaces=TRUE)
 [1] "1, 800, 555, 0100"
 ```
 ---
+#### **6. Installation**
+\# in R:
+install.packages('devtools')
+library(devtools)
 
+install_github('vlahm/manipulateR')
+library(manipulateR)
 
-
-
+#### **7. Contact the author**
+Mike Vlah
+vlahm13@gmail[dot]com
 

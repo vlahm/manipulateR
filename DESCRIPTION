@@ -3,12 +3,10 @@ Title: Nifty Convenience Functions for Data Manipulation
 Version: 1.0
 Authors@R: person("Mike", "Vlah", email = "vlahm13@gmail.com",
     role = c("aut", "cre"))
-Description: There are some tasks faced by every R user on a regular
-    basis (related to data slicing, creation, read-in, etc.)
-    that are just easy enough to keep us from finding the time to
-    automate them. Each time these tasks arise, we consider writing
-    functions for them, but never get around to it. Here are those
-    functions.
+Description: Some data manipulation tasks are just easy enough that
+    we never get around to automating them. We just perform them over
+    and over, making mental notes that it would be nice to write functions
+    for them one day. Here are those functions.
 Depends:
     R (>= 3.1.0)
 License: GPL-3
