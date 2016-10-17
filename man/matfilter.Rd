@@ -16,6 +16,9 @@ matfilter(x, mar = 2, cond = NA, fun = NULL, thresh = 1, na.rm = TRUE,
 \item{cond}{character expression; the completion of a Boolean expression,
 e.g. ">= 0", which is passed to \code{apply}.}
 
+\item{fun}{the name of a function that returns a logical, e.g. 
+\code{is.numeric}}
+
 \item{thresh}{a float between 0 and 1. Only rows/columns with \code{<=}
 this proportion of elements satisfying \code{cond} or \code{fun}
 will be returned if \code{filter == TRUE}.}
