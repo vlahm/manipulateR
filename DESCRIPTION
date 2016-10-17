@@ -7,7 +7,7 @@ Description: Some data manipulation tasks are just easy enough that
     we never get around to automating them. We just perform them over
     and over, making mental notes that it would be nice to write functions
     for them one day. Here are those functions.
-Depends:
+Depends: 
     R (>= 3.1.0)
 License: GPL-3
 Encoding: UTF-8

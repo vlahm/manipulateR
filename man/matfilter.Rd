@@ -15,6 +15,17 @@ matfilter(x, mar = 2, cond = NA, fun = NULL, thresh = 1, na.rm = TRUE,
 
 \item{cond}{character expression; the completion of a Boolean expression,
 e.g. ">= 0", which is passed to \code{apply}.}
+
+\item{thresh}{a float between 0 and 1. Only rows/columns with \code{<=}
+this proportion of elements satisfying \code{cond} or \code{fun}
+will be returned if \code{filter == TRUE}.}
+
+\item{na.rm}{logical; if \code{FALSE}, rows/columns containing \code{NA}
+values will be evaluated to \code{NA} if using \code{fun}.}
+
+\item{filter}{logical; if \code{TRUE}, the filtered matrix or data.frame
+will be returned.  If \code{FALSE}, only the proportions of values in
+each column satisfying \code{cond} or \code{fun} will be returned.}
 }
 \value{
 a matrix or data.frame with columns or rows removed according to

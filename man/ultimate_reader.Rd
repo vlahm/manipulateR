@@ -15,7 +15,7 @@ the files to be read/merged.}
 \item{read_args}{\code{list} of args passed to \code{read.table}, 
 which by default is set up to read .csv files.}
 
-\item{merge}{determines whether to merge each file and output the merged
+\item{merge}{determines whether to merge all files and output the merged
 \code{data.frame} (TRUE) or leave them separate and add them to the
 global environment (FALSE).}
 
