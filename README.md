@@ -23,7 +23,7 @@ matfilter(x, mar=2, cond=NA, fun=NULL, thresh=1,
 + `x` a matrix or data.frame
 + `mar` [numeric] the margin along which the function will be applied - either 1 for rows or 2 for columns
 + `cond` [character] the completion of a Boolean expression, e.g. ">= 0", which is passed to `apply`
-+ `fun` the name of a function that returns a logical, i.e. `is.numeric`
++ `fun` the name of a function that returns a logical, e.g. `is.numeric`
 + `thresh` [numeric] a value between 0 and 1. Only rows/columns with `<=` this proportion of elements satisfying `cond` or `fun` will be returned if `filter == TRUE`.
 + `na.rm` [logical] if `FALSE`, rows/columns containing `NA` values will be evaluated to `NA` if using `fun`.
 + `filter` [logical] if `TRUE`, the filtered matrix or data.frame will be returned.  If `FALSE`, only the proportions of values in each column satisfying `cond` or `fun` will be returned.

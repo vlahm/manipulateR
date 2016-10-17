@@ -9,6 +9,8 @@
 #'   1 for rows or 2 for columns.
 #' @param cond character expression; the completion of a Boolean expression,
 #'   e.g. ">= 0", which is passed to \code{apply}.
+#' @param fun the name of a function that returns a logical, e.g. 
+#'   \code{is.numeric}
 #' @param thresh a float between 0 and 1. Only rows/columns with \code{<=}
 #'   this proportion of elements satisfying \code{cond} or \code{fun}
 #'   will be returned if \code{filter == TRUE}.
