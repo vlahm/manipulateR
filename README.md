@@ -60,15 +60,18 @@ $row_proportions
 ```
 ---
 ### **2. ultimate_reader**
-#### Read and merge multiple files
-+ `dir_args` a `list` of args passed to `dir`, which selects the files to be read/merged.
-+ `read_args` a `list` of args passed to `read_table`, which by default is set up to read .csv files.
+#### Read and merge multiple files. Reads any character-delimited filetype based on filename patterns. Merges data if desired.
 ```R
 ultimate_reader(dir_args=list(path='./',pattern='.csv'),
     read_args=list(sep=',', quote="\"", header=TRUE,
     fill=TRUE, comment.char=""), 
     merge=FALSE, ...)
 ```
++ `dir_args` a `list` of args passed to `dir`, which selects the files to be read/merged.
++ `read_args` a `list` of args passed to `read_table`, which by default is set up to read .csv files.
++ `merge` determines whether to merge all files and output the merged data.frame (TRUE) or leave them separate and add them to the global environment (FALSE).
++ `...` supplies additional args to `merge`.
+
 #### **_Example Usage_**
 ```R
 ultimate_reader(dir_args=list(path='~/project/data', pattern='\w{3}_2016.csv'))
